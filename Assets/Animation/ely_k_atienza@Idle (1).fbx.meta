@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 87a2eae9e90684642a550ac965aa33c8
+guid: 0e4e10f819792cd4db0377bec720bb48
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Wave Hip Hop Dance
+    second: Idle (1)
+  - first:
+      74: -3100369314251171874
+    second: Idle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Wave Hip Hop Dance
+      name: Idle
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 479
+      lastFrame: 63
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -20,6 +20,7 @@ public  static class ButtonExtension
 public class ButtonManager : MonoBehaviour
 {
     public Animator Player;
+    public static int AnimSelect = 4;
 
     [Serializable]
     public struct Buttons
@@ -54,22 +55,7 @@ public class ButtonManager : MonoBehaviour
 
         Debug.Log("Item "+itenIndex);
 
-        switch (itenIndex)
-        {
-            case 0:
-                Player.Play("Macarena Dance");
-                break;
-            case 1:
-                Player.Play("House Dancing");
-                break;
-            case 2:
-                Player.Play("Wave Hip Hop Dance");
-                break;
-            case 3:
-                Debug.Log("Confirmado");
-                break;
-        }
-
+        AnimSelect = itenIndex;
     }
 
 }
