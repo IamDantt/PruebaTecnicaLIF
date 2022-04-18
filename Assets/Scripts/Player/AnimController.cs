@@ -11,11 +11,10 @@ public class AnimController : MonoBehaviour
         Anim = GetComponent<Animator>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
-        switch (ButtonManager.AnimSelect)
+        switch (GameManager.Opc)
         {
             case 0:
                 Anim.Play("Macarena Dance");
@@ -25,10 +24,7 @@ public class AnimController : MonoBehaviour
                 break;
             case 2:
                 Anim.Play("Wave Hip Hop Dance");
-                break;
-            case 3:
-                Debug.Log("Confirmado");
-                break;
+                break;            
             case 4:
                 Anim.Play("Idle");
                 break;

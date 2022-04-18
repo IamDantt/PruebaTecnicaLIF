@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public Camera playerCamera;
+    public Transform camTrans;
 
     [Header("General")]
     public float gravitiScale = -20f;
@@ -22,12 +23,17 @@ public class PlayerController : MonoBehaviour
     [Header("Rotation")]
     public float rotationSens = 10f;
 
+    [Header("Shoot")]
+    public GameObject bullet;
+    public Transform firePoint;
+    
+
     private float cameraVertAngle;
 
     Vector3 rotationinput = Vector3.zero;
     Vector3 moveInput = Vector3.zero;
     CharacterController characterController;
-
+   
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -38,6 +44,7 @@ public class PlayerController : MonoBehaviour
         Move();
         Look();
         CursorH();
+        ShootGun();
     }
 
     private void Move()
@@ -89,5 +96,24 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = false;
         }
     }
-
+    public void ShootGun()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(camTrans.position,camTrans.forward, out hit, 50f))
+            {
+                if(Vector3.Distance(camTrans.position, hit.point)< 2f)
+                {
+                    firePoint.LookAt(hit.point);
+                }
+                else
+                {
+                    firePoint.LookAt(camTrans.position + (camTrans.forward *30f));
+                }
+            }
+           
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
+        }
+    }
 }

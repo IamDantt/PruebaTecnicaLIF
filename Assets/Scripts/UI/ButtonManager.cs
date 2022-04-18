@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public  static class ButtonExtension
 {
@@ -19,6 +20,8 @@ public  static class ButtonExtension
 
 public class ButtonManager : MonoBehaviour
 {
+    public int MyScene;
+
     public Animator Player;
     public static int AnimSelect = 4;
 
@@ -56,6 +59,22 @@ public class ButtonManager : MonoBehaviour
         Debug.Log("Item "+itenIndex);
 
         AnimSelect = itenIndex;
+
+    }
+
+    public void Scene()
+    {
+
+        if (AnimSelect == 3)
+        {
+            SceneManager.LoadScene(MyScene);
+        }
+
+    }
+
+    void Update()
+    {
+        Scene();
     }
 
 }
